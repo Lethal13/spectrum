@@ -10,7 +10,7 @@
 
 :: Define source file paths
 :: Path to platform-specific code
-set BasePlatformPath=..\\..\\src\\platform\\win32\\win32_spectrum.c
+set BasePlatformPath=..\\..\\src\\platform\\windows\\win32_spectrum.c
 :: Path to core library code
 set BaseLibPath=..\\..\\src\\engine\\spectrum.c
 

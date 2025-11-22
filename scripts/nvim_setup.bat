@@ -1,5 +1,5 @@
 @echo off
 
 cd .. 
-nvim src/platform/win32/win32_spectrum.h
+nvim src/platform/windows/win32_spectrum.h
 exit
