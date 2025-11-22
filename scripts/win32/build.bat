@@ -20,7 +20,7 @@ set CompilerFlags=/nologo /TC /MTd /Z7 /Od /Oi /WX /W4 /wd4201 /wd4100 -DSPECTRU
 :: -DSPECTRUM_DEBUG: Define SPECTRUM_DEBUG preprocessor macro
 
 :: Define linker flags
-set LinkerFlags=/incremental:no kernel32.lib /out:win32_spectrum.exe /subsystem:WINDOWS /MACHINE:X64
+set LinkerFlags=/incremental:no kernel32.lib User32.lib /out:win32_spectrum.exe /subsystem:WINDOWS /MACHINE:X64
 :: kernel32.lib: Core Windows functionality
 :: /out: Specifies output executable name
 :: /MACHINE:X64: Targets 64-bit architecture
@@ -33,7 +33,7 @@ IF NOT EXIST ..\..\build\msvc_build_x64 mkdir ..\..\build\msvc_build_x64
 pushd ..\..\build\msvc_build_x64
 
 :: Compile core library as a DLL
-call cl %CompilerFlags% %BaseLibPath% /Fmspectrum.map /LD /Fespectrum.dll /link -incremental:no -EXPORT:update_and_render
+call cl %CompilerFlags% %BaseLibPath% /Fmspectrum.map /LD /Fespectrum.dll /link -incremental:no -EXPORT:update_render
 :: /Fm: Generate map file
 :: /LD: Create a DLL
 :: -EXPORT: Export the raytracer function from the DLL
