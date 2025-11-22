@@ -10,9 +10,9 @@
 
 :: Define source file paths
 :: Path to platform-specific code
-set BasePlatformPath=..\\..\\..\\src\\platform\\win32\\win32_spectrum.c
+set BasePlatformPath=..\\..\\src\\platform\\win32\\win32_spectrum.c
 :: Path to core library code
-set BaseLibPath=..\\..\\..\\src\\engine\\spectrum.c
+set BaseLibPath=..\\..\\src\\engine\\spectrum.c
 
 :: Define compiler flags
 set CompilerFlags=/nologo /TC /MTd /Z7 /Od /Oi /WX /W4 /wd4201 /wd4100 -DSPECTRUM_DEBUG
@@ -26,11 +26,11 @@ set LinkerFlags=/incremental:no kernel32.lib /out:win32_spectrum.exe /subsystem:
 :: /MACHINE:X64: Targets 64-bit architecture
 
 :: Create build directories if they don't exist
-IF NOT EXIST ..\build mkdir ..\build
-IF NOT EXIST ..\build\msvc_build_x64 mkdir ..\build\msvc_build_x64
+IF NOT EXIST ..\..\build mkdir ..\..\build
+IF NOT EXIST ..\..\build\msvc_build_x64 mkdir ..\..\build\msvc_build_x64
 
 :: Change to build directory
-pushd ..\build\msvc_build_x64
+pushd ..\..\build\msvc_build_x64
 
 :: Compile core library as a DLL
 call cl %CompilerFlags% %BaseLibPath% /Fmspectrum.map /LD /Fespectrum.dll /link -incremental:no -EXPORT:update_and_render
