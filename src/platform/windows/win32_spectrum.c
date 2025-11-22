@@ -224,10 +224,21 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     {
         win32_process_messages();
 
+        struct framebuffer framebuffer = {0};
+        framebuffer.data = g_framebuffer.data;
+        framebuffer.width = g_framebuffer.width;
+        framebuffer.height = g_framebuffer.height;
+        framebuffer.pitch = g_framebuffer.pitch;
+        framebuffer.stride = g_framebuffer.stride;
+        framebuffer.bytes_per_pixel = g_framebuffer.bytes_per_pixel;
+
+        ctx.update_render_cb(&framebuffer);
+
 		struct win32_window_dimensions dimensions = win32_get_window_dimensions(hwnd);
 		win32_display_buffer(device_context, dimensions.width, dimensions.height, &g_framebuffer);
     }
 
     win32_engine_unload(&ctx);
+    VirtualFree(g_framebuffer.data, 0, MEM_RELEASE);
     return 0;
 }
