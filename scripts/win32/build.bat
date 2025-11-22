@@ -20,7 +20,7 @@ set CompilerFlags=/nologo /TC /MTd /Z7 /Od /Oi /WX /W4 /wd4201 /wd4100 -DSPECTRU
 :: -DSPECTRUM_DEBUG: Define SPECTRUM_DEBUG preprocessor macro
 
 :: Define linker flags
-set LinkerFlags=/incremental:no kernel32.lib User32.lib /out:win32_spectrum.exe /subsystem:WINDOWS /MACHINE:X64
+set LinkerFlags=/incremental:no kernel32.lib User32.lib Gdi32.lib /out:win32_spectrum.exe /subsystem:WINDOWS /MACHINE:X64
 :: kernel32.lib: Core Windows functionality
 :: /out: Specifies output executable name
 :: /MACHINE:X64: Targets 64-bit architecture
